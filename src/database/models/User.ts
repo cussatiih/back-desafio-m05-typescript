@@ -3,20 +3,14 @@ import DatabaseConnection from "../config/DatabaseConnection";
 
 const dbConnection = new DatabaseConnection().dbConnection;
 
-export default class UserModel extends Model {
+export default class User extends Model {
   private id!: number;
   private name!: string;
   private email!: string;
-  private cpf!: string;
-  private phone!: string;
-  private address!: string;
-  private addressTwo!: string;
-  private district!: string;
-  private city!: string;
-  private state!: string;
+  private password!: string;
 }
 
-UserModel.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -27,8 +21,9 @@ UserModel.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true,
-        msg: "Field 'name' must be filled in.",
+        notEmpty: {
+          msg: "Please provide a valid name.",
+        },
       },
     },
     email: {
@@ -36,17 +31,18 @@ UserModel.init(
       allowNull: false,
       unique: true,
       validate: {
-        notEmpty: true,
-        isEmail: true,
-        msg: "Field 'email' must be filled in with a valid email.",
+        isEmail: {
+          msg: "Please provide a valid email.",
+        },
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true,
-        msg: "Field 'password' must be filled in.",
+        notEmpty: {
+          msg: "Please Provide a valid password.",
+        },
       },
     },
   },

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config();
+require("dotenv").config();
 
 const DatabaseConfig = {
   dialect: process.env.DB_DIALECT,
@@ -12,13 +12,13 @@ const DatabaseConfig = {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   },
   dialectOptions: {
-    timezone: 'America/Sao_Paulo',
+    timezone: "America/Sao_Paulo",
   },
-  timezone: 'America/Sao_Paulo',
+  timezone: "America/Sao_Paulo",
 };
 
 module.exports = DatabaseConfig;
